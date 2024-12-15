@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'flutter-firebase-codelab-2.firebasestorage.app',
     iosBundleId: 'com.example.firebaseDemo2',
   );
+
 }

@@ -19,14 +19,15 @@ class Header extends StatelessWidget {
 }
 
 class Paragraph extends StatelessWidget {
-  const Paragraph(this.content, {super.key});
+  const Paragraph(this.content, this.color, {super.key});
   final String content;
+  final Color color;
   @override
   Widget build(BuildContext context) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: Text(
           content,
-          style: const TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 18, color: color),
         ),
       );
 }

@@ -73,6 +73,7 @@ class ApplicationState extends ChangeNotifier {
               GuestBookMessage(
                 name: document.data()['name'] as String,
                 message: document.data()['text'] as String,
+                color: document.data()['color'] as String
               ),
             );
           }
@@ -104,7 +105,7 @@ class ApplicationState extends ChangeNotifier {
   }
 
 
-  Future<DocumentReference> addMessageToGuestBook(String message) {
+  Future<DocumentReference> addMessageToGuestBook(String message, String color) {
     if (!_loggedIn) {
       throw Exception('Must be logged in');
     }
@@ -113,6 +114,7 @@ class ApplicationState extends ChangeNotifier {
         .collection('guestbook')
         .add(<String, dynamic>{
       'text': message,
+      'color': color,
       'timestamp': DateTime.now().millisecondsSinceEpoch,
       'name': FirebaseAuth.instance.currentUser!.displayName,
       'userId': FirebaseAuth.instance.currentUser!.uid,
